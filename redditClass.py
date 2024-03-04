@@ -17,7 +17,7 @@ ncomments = []
 neutral = []
 
 
-
+# Use this File to get the info you want.
 class RedditClient(object):
     
     def __init__(self):
@@ -25,6 +25,7 @@ class RedditClient(object):
                                             client_secret="p4YqpO0wtHYP47U2C02WkgRHRMAQLw",      
                                             user_agent="PythonScraping")        
         self.subreddit = self.reddit_read_only.subreddit("todayilearned")
+
         
         
         
@@ -38,6 +39,7 @@ class RedditClient(object):
         return self.reddit_read_only
     
     def getPosts(self):
+        # Change this from 'day' to 'week', 'month', 'year', 'all' for what time frame you want the posts from.
         return self.subreddit.top('day')
     
     def populate(self):
@@ -86,6 +88,7 @@ class RedditClient(object):
         
 def main():
     api = RedditClient()
+    # change this to whatebver subreddit you want to use.
     api.setSubreddit('csgo')
     api.populate()
     api.getComments()
@@ -107,12 +110,7 @@ def main():
     print("\n\nNegative comments:")
     for comment in ncomments[:1]:
         print(comment)
-    
-            
-            
-    
-    
-    
+
     
 if __name__ == "__main__":
     # calling main function
